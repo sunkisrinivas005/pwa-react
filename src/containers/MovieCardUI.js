@@ -22,9 +22,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MovieCardUI({ data, handleDetailClick }) {
+export default function MovieCardUI({ data, handleDelete, handleUpdate }) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <div className = "col-lg-6" key={data.Title} style = {{padding:"20px"}}>
@@ -35,25 +34,33 @@ export default function MovieCardUI({ data, handleDetailClick }) {
             color="textSecondary"
             gutterBottom
           >
-            {data.Title}
+           Name :  {data.name}
           </Typography>
-          <Typography variant="h5" component="h2">
-          Movie Title : {data.Title}
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            Email : {data.email}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-          Distributor: {data.Distributor ? data.Distributor : "Paramount Pictures" }
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            Phone Number : {data.phonenumber}
           </Typography>
-          <Typography variant="body2" component="p">
-          Director : {data.Director ? data.Director : "Zack Sydner"}
-            <br />
-          </Typography>
-          <Typography variant="body2" component="p">
-          Rating : {data['IMDB Rating'] ? data['IMDB Rating'] : "4.2"}
-            <br />
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            Rating : {data.rating ? data.rating : "NA"}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick ={() => handleDetailClick(data)}>Explore More</Button>
+          <Button size="small" variant ="contained" color = "primary" onClick ={() => handleDelete({phoneNumber :data.phonenumber})}>Delete</Button>
+          <Button size="small" variant ="contained" color = "primary" onClick ={() => handleUpdate(data)}>Update</Button>
         </CardActions>
       </Card>
     </div>
