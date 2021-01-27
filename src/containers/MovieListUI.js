@@ -62,8 +62,7 @@ const reducer = (state, action) => {
   }
 };
 
-const MovieListUI = ({ handleOpen, handleClose }) => {
-  let [editData, setEditData] = useState({});
+const MovieListUI = () => {
   let [updateStatus, setUpdateStatus] = useState(false);
   let [open, setOpen] = useState(false);
 
