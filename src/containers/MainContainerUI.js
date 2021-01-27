@@ -2,6 +2,8 @@ import React from "react";
 import MovieListUI from "./MovieListUI";
 
 const MainContainer = () => {
+    let [Open, setOpen] = React.useState(false);
+
     return(
         <div style = {{backgroundColor :"#D3D3D3"}}>
             <div className = "col-lg-12 row" style = {{justifyContent:"space-between", padding:"10px"}}>
