@@ -20,10 +20,7 @@ export const getAllRestaurants = () => {
             payload: body && body.data ? body.data : {},
         });
         } else if (res.message === "error") {
-        // dispatch({
-        //     type: SHOW_MESSAGE,
-        //     payload: res.message,
-        // });
+         console.log("error")
         }
         return res;
   }
@@ -78,8 +75,6 @@ export const handleUpdateRestaurants = async(data, Callback) => {
   const headers = {
     "Content-Type": "application/json"
   };
-
-  console.log(data, "Dadad")
 
   let res = await API({url, method, headers, data});
 

@@ -1,7 +1,6 @@
 import React, { useState, useReducer } from "react";
 import MovieCardUI from "./MovieCardUI";
 import { Button } from "@material-ui/core";
-import MovieDetailView from "./MovieDetailUI";
 import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
   import {NotificationContainer,NotificationManager } from 'react-notifications';
@@ -86,14 +85,18 @@ const MovieListUI = ({ handleOpen, handleClose }) => {
 
   React.useEffect(() => {
     handlegetRestaurants();
+    return  ValidatorForm.removeValidationRule('phoneNumberValid');
   }, []);
+
 
   ValidatorForm.addValidationRule('phoneNumberValid', (value) => {
     if (!value.match(PhoneNumberRegex)) {
         return false;
     }
     return true;
+
 });
+
 
 
 const handleCloseModal = () => {
@@ -183,7 +186,7 @@ const handleCloseModal = () => {
                 setOpen(true)
               }}
               variant = "contained"
-              style = {{float:"right"}}
+              style = {{float:"right", margin:"15px"}}
              >
                  Add New 
              </Button>
